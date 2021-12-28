@@ -1,12 +1,49 @@
-import { Button } from "antd";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+// Ant Design
+import { Layout, Menu } from "antd";
+
+// Components
+// import { AddItem } from "./components/common/AddItem/AddItem";
+// import { ItemList } from "./components/common/ItemList";
+// import { UpdateItem } from "./components/common/UpdateItem";
+
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
+const { Header, Content, Footer } = Layout;
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Layout>
+          <Header className="header">
+            <div className="logo" />
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+              <Menu.Item key="1">
+                <Link to="/teams">Teams</Link>
+              </Menu.Item>
+              <Menu.Item key="2">
+                <Link to="/system-users">System users</Link>
+              </Menu.Item>
+            </Menu>
+          </Header>
+          <Content style={{ margin: "25px 0", padding: "0 50px" }}>
+            <Layout
+              className="site-layout-background"
+              style={{ padding: "24px 0" }}
+            >
+              <Content style={{ padding: "0 24px", minHeight: 280 }}>
+                Content
+              </Content>
+            </Layout>
+          </Content>
+          <Footer style={{ textAlign: "center" }}>AhanOnline ©2021</Footer>
+        </Layout>
+      </>
+    );
+  }
 }
 
 export default App;
