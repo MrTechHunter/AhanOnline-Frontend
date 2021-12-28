@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 // Ant Design
 import { Layout, Menu } from "antd";
 
-// Components
-// import { AddItem } from "./components/common/AddItem/AddItem";
-// import { ItemList } from "./components/common/ItemList";
-// import { UpdateItem } from "./components/common/UpdateItem";
-
 import "./App.css";
 
 const { Header, Content, Footer } = Layout;
@@ -22,10 +17,10 @@ class App extends Component {
             <div className="logo" />
             <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
               <Menu.Item key="1">
-                <Link to="/teams">Teams</Link>
+                <Link to="teams">Teams</Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link to="/system-users">System users</Link>
+                <Link to="system-users">System users</Link>
               </Menu.Item>
             </Menu>
           </Header>

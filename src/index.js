@@ -5,13 +5,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import Teams from "./components/Teams";
+import SystemUsers from "./components/SystemUsers";
+
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
-        {/* <Route path="teams" element={<Teams />} /> */}
-        {/* <Route path="system-users" element={<systemUsers />} /> */}
-      </Route>
+      <Route path="/" element={<App />} />
+      <Route path="teams" element={<Teams />} />
+      <Route path="system-users" element={<SystemUsers />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
