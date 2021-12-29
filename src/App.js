@@ -1,11 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
-// Ant Design
 import { Layout, Menu } from "antd";
 
 import "./App.css";
 
+import SystemUsers from "./components/SystemUsers";
+
+// Ant Design
 const { Header, Content, Footer } = Layout;
 
 class App extends Component {
@@ -30,7 +32,7 @@ class App extends Component {
               style={{ padding: "24px 0" }}
             >
               <Content style={{ padding: "0 24px", minHeight: 280 }}>
-                Content
+                <Outlet />
               </Content>
             </Layout>
           </Content>

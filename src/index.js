@@ -11,9 +11,10 @@ import SystemUsers from "./components/SystemUsers";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="teams" element={<Teams />} />
-      <Route path="system-users" element={<SystemUsers />} />
+      <Route path="/" element={<App />}>
+        <Route path="teams" element={<Teams />} />
+        <Route path="system-users" element={<SystemUsers />} />
+      </Route>
     </Routes>
   </BrowserRouter>,
   document.getElementById("root")
