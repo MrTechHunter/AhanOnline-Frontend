@@ -5,8 +5,6 @@ import { Layout, Menu } from "antd";
 
 import "./App.css";
 
-import SystemUsers from "./components/SystemUsers";
-
 // Ant Design
 const { Header, Content, Footer } = Layout;
 

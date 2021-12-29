@@ -1,49 +1,39 @@
 import React, { Component } from "react";
-
-import { Table } from "antd";
-
-const dataSource = [
-  {
-    key: "1",
-    name: "Mike",
-    age: 32,
-    address: "10 Downing Street",
-  },
-  {
-    key: "2",
-    name: "John",
-    age: 42,
-    address: "10 Downing Street",
-  },
-];
+import axios from "axios";
 
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
+    title: "teamid",
+    dataIndex: "teamid",
+    key: "teamid",
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    key: "age",
+    title: "organizationid",
+    dataIndex: "organizationid",
+    key: "organizationid",
   },
   {
-    title: "Address",
-    dataIndex: "address",
-    key: "address",
+    title: "businessunitid",
+    dataIndex: "businessunitid",
+    key: "businessunitid",
   },
 ];
 
 class SystemUsers extends Component {
-  state = {};
+  state = {
+    SystemUsers: [],
+  };
+
+  componentDidMount() {
+    axios.get(`http://127.0.0.1:8000/teams/`).then((res) => {
+      const SystemUsers = res.data;
+      //   this.setState({ SystemUsers });
+      console.log(SystemUsers);
+    });
+  }
 
   render() {
-    return (
-      <>
-        <Table dataSource={dataSource} columns={columns} />
-      </>
-    );
+    return <></>;
   }
 }
 
