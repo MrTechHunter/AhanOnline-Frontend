@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Table } from "antd";
@@ -29,27 +29,50 @@ const columns = [
     dataIndex: "fullname",
     key: "fullname",
   },
+  {
+    title: "Action",
+    dataIndex: "",
+    key: "x",
+    render: () => <a>Delete</a>,
+  },
 ];
 
-class SystemUsers extends Component {
-  constructor() {
-    super();
-    this.state = {
-      SystemUsers: [],
-    };
-  }
+function SystemUsers() {
+  const [state, setstate] = useState([]);
+  const [loading, setloading] = useState(true);
+  useEffect(() => {
+    getData();
+  }, []);
 
-  componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/system-users/`).then((res) => {
-      const SystemUsers = res.data;
-      // this.setState({ SystemUsers: SystemUsers });
-      console.log(SystemUsers);
+  const getData = async () => {
+    await axios.get("http://127.0.0.1:8000/system-users/").then((res) => {
+      setloading(false);
+      setstate(
+        res.data.map((row) => ({
+          mainteamname: row.mainteamname,
+          systemuserid: row.systemuserid,
+          organizationid: row.organizationid,
+          businessunitid: row.businessunitid,
+          fullname: row.fullname,
+        }))
+      );
     });
-  }
+  };
 
-  render() {
-    return <>{/* <Table columns={columns} dataSource={SystemUsers} /> */}</>;
-  }
+  return (
+    <div>
+      {loading ? (
+        "Loading"
+      ) : (
+        <Table
+          columns={columns}
+          dataSource={state}
+          pagination={{ pageSize: 100 }}
+          scroll={{ y: 540 }}
+        />
+      )}
+    </div>
+  );
 }
 
 export default SystemUsers;

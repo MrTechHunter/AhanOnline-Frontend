@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 
 import { Table } from "antd";
@@ -59,27 +60,56 @@ const columns = [
     dataIndex: "administratorid",
     key: "administratorid",
   },
+  {
+    title: "Action",
+    dataIndex: "",
+    key: "x",
+    render: () => <a>Delete</a>,
+  },
 ];
 
-class Teams extends Component {
-  constructor() {
-    super();
-    this.state = {
-      Teams: [],
-    };
-  }
+function Teams() {
+  const [state, setstate] = useState([]);
+  const [loading, setloading] = useState(true);
+  useEffect(() => {
+    getData();
+  }, []);
 
-  componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/teams/`).then((res) => {
-      const Teams = res.data;
-      // this.setState({ Teams: Teams });
-      console.log(Teams);
+  const getData = async () => {
+    await axios.get("http://127.0.0.1:8000/system-users/").then((res) => {
+      setloading(false);
+      setstate(
+        res.data.map((row) => ({
+          teamid: row.teamid,
+          organizationid: row.organizationid,
+          businessunitid: row.businessunitid,
+          name: row.name,
+          description: row.description,
+          createdon: row.createdon,
+          modifiedon: row.modifiedon,
+          createdby: row.createdby,
+          modifiedby: row.modifiedby,
+          isdefault: row.isdefault,
+          administratorid: row.administratorid,
+        }))
+      );
     });
-  }
+  };
 
-  render() {
-    return <>{/* <Table columns={columns} dataSource={Teams} /> */}</>;
-  }
+  return (
+    <div>
+      {loading ? (
+        "Loading"
+      ) : (
+        <Table
+          columns={columns}
+          dataSource={state}
+          pagination={{ pageSize: 100 }}
+          scroll={{ y: 540 }}
+        />
+      )}
+    </div>
+  );
 }
 
 export default Teams;
