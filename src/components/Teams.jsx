@@ -61,7 +61,13 @@ const columns = [
     key: "administratorid",
   },
   {
-    title: "Action",
+    title: "Edit",
+    dataIndex: "",
+    key: "x",
+    render: () => <a>Edit</a>,
+  },
+  {
+    title: "Edit",
     dataIndex: "",
     key: "x",
     render: () => <a>Delete</a>,
@@ -72,11 +78,11 @@ function Teams() {
   const [state, setstate] = useState([]);
   const [loading, setloading] = useState(true);
   useEffect(() => {
-    getData();
+    getTeams();
   }, []);
 
-  const getData = async () => {
-    await axios.get("http://127.0.0.1:8000/system-users/").then((res) => {
+  const getTeams = async () => {
+    await axios.get("http://127.0.0.1:8000/teams").then((res) => {
       setloading(false);
       setstate(
         res.data.map((row) => ({
@@ -95,6 +101,15 @@ function Teams() {
       );
     });
   };
+
+  // const deleteTeam = async (id) => {
+  //   await axios.delete(`http://127.0.0.1:8000/teams/${id}`);
+  //   setloading(false);
+  //   const del = state.filter((t) => t.teamid !== state.team.id);
+  //   state.splice(state.indexOf(del), 1);
+  //   // setstate(del);
+  //   console.log(del);
+  // };
 
   return (
     <div>

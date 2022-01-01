@@ -59,6 +59,15 @@ function SystemUsers() {
     });
   };
 
+  // const deleteSystemUser = async (id) => {
+  //   await axios.delete(`http://127.0.0.1:8000/system-users/${id}`);
+  //   setloading(false);
+  //   const del = state.filter((su) => su.systemuserid !== state.su.id);
+  //   state.splice(state.indexOf(del), 1);
+  //   // setstate(del);
+  //   console.log(del);
+  // };
+
   return (
     <div>
       {loading ? (
