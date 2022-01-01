@@ -3,9 +3,14 @@ import axios from "axios";
 
 const columns = [
   {
-    title: "teamid",
-    dataIndex: "teamid",
-    key: "teamid",
+    title: "mainteamname",
+    dataIndex: "mainteamname",
+    key: "mainteamname",
+  },
+  {
+    title: "systemuserid",
+    dataIndex: "systemuserid",
+    key: "systemuserid",
   },
   {
     title: "organizationid",
@@ -17,6 +22,11 @@ const columns = [
     dataIndex: "businessunitid",
     key: "businessunitid",
   },
+  {
+    title: "fullname",
+    dataIndex: "fullname",
+    key: "fullname",
+  },
 ];
 
 class SystemUsers extends Component {
@@ -25,7 +35,7 @@ class SystemUsers extends Component {
   };
 
   componentDidMount() {
-    axios.get(`http://127.0.0.1:8000/teams/`).then((res) => {
+    axios.get(`http://127.0.0.1:8000/system-users/`).then((res) => {
       const SystemUsers = res.data;
       //   this.setState({ SystemUsers });
       console.log(SystemUsers);
