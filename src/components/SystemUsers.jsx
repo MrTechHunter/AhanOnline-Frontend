@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import { Table } from "antd";
+
 const columns = [
   {
     title: "mainteamname",
@@ -30,20 +32,23 @@ const columns = [
 ];
 
 class SystemUsers extends Component {
-  state = {
-    SystemUsers: [],
-  };
+  constructor() {
+    super();
+    this.state = {
+      SystemUsers: [],
+    };
+  }
 
   componentDidMount() {
     axios.get(`http://127.0.0.1:8000/system-users/`).then((res) => {
       const SystemUsers = res.data;
-      //   this.setState({ SystemUsers });
+      // this.setState({ SystemUsers: SystemUsers });
       console.log(SystemUsers);
     });
   }
 
   render() {
-    return <></>;
+    return <>{/* <Table columns={columns} dataSource={SystemUsers} /> */}</>;
   }
 }
 

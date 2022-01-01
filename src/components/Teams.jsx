@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+import { Table } from "antd";
+
 const columns = [
   {
     title: "teamid",
@@ -60,19 +62,23 @@ const columns = [
 ];
 
 class Teams extends Component {
-  state = {
-    Teams: [],
-  };
+  constructor() {
+    super();
+    this.state = {
+      Teams: [],
+    };
+  }
 
   componentDidMount() {
     axios.get(`http://127.0.0.1:8000/teams/`).then((res) => {
       const Teams = res.data;
+      // this.setState({ Teams: Teams });
       console.log(Teams);
     });
   }
 
   render() {
-    return <></>;
+    return <>{/* <Table columns={columns} dataSource={Teams} /> */}</>;
   }
 }
 
