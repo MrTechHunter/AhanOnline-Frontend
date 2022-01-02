@@ -134,8 +134,8 @@ function AddTeam() {
 
           <Col span={5}>
             <Form.Item label="Created on" colon={false}>
-              <DatePicker
-                showTime
+              <Input
+                placeholder="e.g. 2021-12-26 05:24:55"
                 onChange={(e) => set_createdon(e.target.value)}
               />
             </Form.Item>
@@ -143,8 +143,8 @@ function AddTeam() {
 
           <Col span={5}>
             <Form.Item label="Modified on" colon={false}>
-              <DatePicker
-                showTime
+              <Input
+                placeholder="e.g. 2021-12-26 05:24:55"
                 onChange={(e) => set_modifiedon(e.target.value)}
               />
             </Form.Item>
@@ -204,19 +204,10 @@ function AddTeam() {
 
           <Col span={5}>
             <Form.Item label="Team type" colon={false}>
-              <Select
-                showSearch
-                placeholder="Select a type"
+              <Input
+                placeholder="e.g. 0"
                 onChange={(e) => set_teamtype(e.target.value)}
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-              >
-                <Option value="0">0</Option>
-                <Option value="1">1</Option>
-              </Select>
+              />
             </Form.Item>
           </Col>
 
@@ -231,19 +222,10 @@ function AddTeam() {
 
           <Col span={5}>
             <Form.Item label="Regarding object type code" colon={false}>
-              <Select
-                showSearch
-                placeholder="Select a type"
+              <Input
+                placeholder="e.g. 0"
                 onChange={(e) => set_regardingobjecttypecode(e.target.value)}
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-              >
-                <Option value="null">null</Option>
-                <Option value="3">3</Option>
-              </Select>
+              />
             </Form.Item>
           </Col>
         </Row>
@@ -371,20 +353,10 @@ function AddTeam() {
 
           <Col span={5}>
             <Form.Item label="New team type" colon={false}>
-              <Select
-                showSearch
-                placeholder="Select a type"
+              <Input
+                placeholder="e.g. 100000000"
                 onChange={(e) => set_newteamtype(e.target.value)}
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-              >
-                <Option value="null">null</Option>
-                <Option value="lucy">100000000</Option>
-                <Option value="tom">100000001</Option>
-              </Select>
+              />
             </Form.Item>
           </Col>
         </Row>
