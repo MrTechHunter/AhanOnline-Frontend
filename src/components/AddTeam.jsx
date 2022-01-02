@@ -221,25 +221,6 @@ function AddTeam() {
           </Col>
 
           <Col span={5}>
-            <Form.Item label="New team type" colon={false}>
-              <Select
-                showSearch
-                placeholder="Select a type"
-                onChange={(e) => set_newteamtype(e.target.value)}
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
-                  0
-                }
-              >
-                <Option value="null">null</Option>
-                <Option value="lucy">100000000</Option>
-                <Option value="tom">100000001</Option>
-              </Select>
-            </Form.Item>
-          </Col>
-
-          <Col span={5}>
             <Form.Item label="Team template ID" colon={false}>
               <Input
                 placeholder="e.g. 26CBE439-6EA4-E411-80B5-000C29F27F20"
@@ -247,11 +228,7 @@ function AddTeam() {
               />
             </Form.Item>
           </Col>
-        </Row>
-        {/* Row 4 end */}
 
-        {/* Row 5 */}
-        <Row gutter={20}>
           <Col span={5}>
             <Form.Item label="Regarding object type code" colon={false}>
               <Select
@@ -269,7 +246,11 @@ function AddTeam() {
               </Select>
             </Form.Item>
           </Col>
+        </Row>
+        {/* Row 4 end */}
 
+        {/* Row 5 */}
+        <Row gutter={20}>
           <Col span={5}>
             <Form.Item label="Manager" colon={false}>
               <Input
@@ -296,11 +277,7 @@ function AddTeam() {
               />
             </Form.Item>
           </Col>
-        </Row>
-        {/* Row 5 end */}
 
-        {/* Row 6 */}
-        <Row gutter={20}>
           <Col span={5}>
             <Form.Item label="Wege detail account" colon={false}>
               <Input
@@ -309,7 +286,11 @@ function AddTeam() {
               />
             </Form.Item>
           </Col>
+        </Row>
+        {/* Row 5 end */}
 
+        {/* Row 6 */}
+        <Row gutter={20}>
           <Col span={5}>
             <Form.Item label="Poursant detail account" colon={false}>
               <Input
@@ -336,11 +317,7 @@ function AddTeam() {
               />
             </Form.Item>
           </Col>
-        </Row>
-        {/* Row 6 end */}
 
-        {/* Row 7 */}
-        <Row gutter={35}>
           <Col span={5}>
             <Form.Item label="Poursant factors detail account" colon={false}>
               <Input
@@ -351,7 +328,11 @@ function AddTeam() {
               />
             </Form.Item>
           </Col>
+        </Row>
+        {/* Row 6 end */}
 
+        {/* Row 7 */}
+        <Row gutter={35}>
           <Col span={5}>
             <Form.Item label="Unit manager" colon={false}>
               <Input
@@ -390,10 +371,20 @@ function AddTeam() {
 
           <Col span={5}>
             <Form.Item label="New team type" colon={false}>
-              <Input
-                placeholder="e.g. 4FAFD04B-4E55-EB10-5050-005036B2E132"
+              <Select
+                showSearch
+                placeholder="Select a type"
                 onChange={(e) => set_newteamtype(e.target.value)}
-              />
+                optionFilterProp="children"
+                filterOption={(input, option) =>
+                  option.children.toLowerCase().indexOf(input.toLowerCase()) >=
+                  0
+                }
+              >
+                <Option value="null">null</Option>
+                <Option value="lucy">100000000</Option>
+                <Option value="tom">100000001</Option>
+              </Select>
             </Form.Item>
           </Col>
         </Row>
@@ -402,7 +393,7 @@ function AddTeam() {
         {/* Submit button */}
         <Row gutter={5}>
           <Col span={5}>
-            <Button type="primary" htmlType="submit">
+            <Button onClick={postData} type="primary">
               Submit
             </Button>
           </Col>
