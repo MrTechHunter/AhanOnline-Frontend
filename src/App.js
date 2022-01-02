@@ -34,7 +34,9 @@ class App extends Component {
               </Content>
             </Layout>
           </Content>
-          <Footer style={{ textAlign: "center" }}>AhanOnline ©2022</Footer>
+          <Footer style={{ textAlign: "center" }}>
+            AhanOnline ©{new Date().getFullYear()}
+          </Footer>
         </Layout>
       </>
     );
