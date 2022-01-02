@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import Teams from "./components/Teams";
 import SystemUsers from "./components/SystemUsers";
+import AddTeam from "./components/AddTeam";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route path="/" element={<App />}>
         <Route path="teams" element={<Teams />} />
         <Route path="system-users" element={<SystemUsers />} />
+        <Route exact path="teams/add" element={<AddTeam />} />
       </Route>
     </Routes>
   </BrowserRouter>,
