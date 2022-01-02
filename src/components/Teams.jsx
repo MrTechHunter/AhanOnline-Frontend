@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import { Table } from "antd";
+import { Link } from "react-router-dom";
+
+import { Table, Button } from "antd";
 
 const columns = [
   {
@@ -113,8 +115,13 @@ function Teams() {
 
   return (
     <div>
+      <Link to="add">
+        <Button type="primary" style={{ marginBottom: 10 }}>
+          Add Team
+        </Button>
+      </Link>
       {loading ? (
-        "Loading"
+        " Loading"
       ) : (
         <Table
           columns={columns}
