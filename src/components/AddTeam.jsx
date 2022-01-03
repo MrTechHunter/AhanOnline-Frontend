@@ -2,19 +2,8 @@ import React, { useState } from "react";
 
 import { SaveOutlined } from "@ant-design/icons";
 
-import {
-  Form,
-  Input,
-  Button,
-  Checkbox,
-  Row,
-  Col,
-  Divider,
-  DatePicker,
-  Select,
-} from "antd";
-
-const { Option } = Select;
+import { Form, Input, Button, Checkbox, Row, Col } from "antd";
+import axios from "axios";
 
 function AddTeam() {
   const [teamid, set_teamid] = useState("");
@@ -76,6 +65,47 @@ function AddTeam() {
     console.log(goal);
     console.log(usercount);
     console.log(newteamtype);
+
+    axios
+      .post(
+        "http://127.0.0.1:8000/teams/",
+        {
+          teamid,
+          organizationid,
+          businessunitid,
+          name,
+          description,
+          createdon,
+          modifiedon,
+          createdby,
+          modifiedby,
+          isdefault,
+          administratorid,
+          queueid,
+          teamtype,
+          teamtemplateid,
+          regardingobjecttypecode,
+          manager,
+          salespurchasemanager,
+          id,
+          wegedetailaccount,
+          poursantdetailaccount,
+          subsidiary,
+          wegefactorsdetailaccount,
+          poursantfactorsdetailaccount,
+          unitmanager,
+          teampercentage,
+          goal,
+          usercount,
+          newteamtype,
+        },
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
+        }
+      )
+      .then(() => console.log("Done"));
   };
 
   return (
@@ -365,9 +395,7 @@ function AddTeam() {
         {/* Submit button */}
         <Row gutter={5}>
           <Col span={5}>
-            <Button onClick={postData} type="primary">
-              Submit
-            </Button>
+            <Button onClick={postData} type="primary" icon={<SaveOutlined />} />
           </Col>
         </Row>
         {/* Submit button end */}
