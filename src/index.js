@@ -6,16 +6,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import Teams from "./components/Teams";
-import SystemUsers from "./components/SystemUsers";
 import AddTeam from "./components/AddTeam";
+import SystemUsers from "./components/SystemUsers";
+import AddSystemUser from "./components/AddSystemUser";
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="teams" element={<Teams />} />
-        <Route path="system-users" element={<SystemUsers />} />
         <Route exact path="teams/add" element={<AddTeam />} />
+        <Route path="system-users" element={<SystemUsers />} />
+        <Route exact path="system-users/add" element={<AddSystemUser />} />
       </Route>
     </Routes>
   </BrowserRouter>,

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Table } from "antd";
+import { Link } from "react-router-dom";
+
+import { Table, Button } from "antd";
 
 const columns = [
   {
@@ -30,7 +32,33 @@ const columns = [
     key: "fullname",
   },
   {
-    title: "Action",
+    title: "mobilephone",
+    dataIndex: "mobilephone",
+    key: "mobilephone",
+  },
+  {
+    title: "createdon",
+    dataIndex: "createdon",
+    key: "createdon",
+  },
+  {
+    title: "modifiedon",
+    dataIndex: "modifiedon",
+    key: "modifiedon",
+  },
+  {
+    title: "queueid",
+    dataIndex: "queueid",
+    key: "queueid",
+  },
+  {
+    title: "Edit",
+    dataIndex: "",
+    key: "x",
+    render: () => <a>Edit</a>,
+  },
+  {
+    title: "Delete",
     dataIndex: "",
     key: "x",
     render: () => <a>Delete</a>,
@@ -54,6 +82,10 @@ function SystemUsers() {
           organizationid: row.organizationid,
           businessunitid: row.businessunitid,
           fullname: row.fullname,
+          mobilephone: row.mobilephone,
+          createdon: row.createdon,
+          modifiedon: row.modifiedon,
+          queueid: row.queueid,
         }))
       );
     });
@@ -70,6 +102,11 @@ function SystemUsers() {
 
   return (
     <div>
+      <Link to="add">
+        <Button type="primary" style={{ marginBottom: 10 }}>
+          Add Superuser
+        </Button>
+      </Link>
       {loading ? (
         "Loading"
       ) : (

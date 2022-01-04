@@ -69,7 +69,7 @@ const columns = [
     render: () => <a>Edit</a>,
   },
   {
-    title: "Edit",
+    title: "Delete",
     dataIndex: "",
     key: "x",
     render: () => <a>Delete</a>,

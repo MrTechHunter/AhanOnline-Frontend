@@ -70,140 +70,79 @@ function AddSystemUser() {
   const [systemuseridmeta, set_systemuseridmeta] = useState("");
 
   const postData = () => {
-    mainteamname,
-      systemuserid,
-      organizationid,
-      businessunitid,
-      parentsystemuserid,
-      firstname,
-      lastname,
-      fullname,
-      internalemailaddress,
-      mobilephone,
-      domainname,
-      createdon,
-      modifiedon,
-      createdby,
-      modifiedby,
-      isdisabled,
-      skills,
-      calendarid,
-      activedirectoryguid,
-      invitestatuscode,
-      isactivedirectoryuser,
-      queueid,
-      transactioncurrencyid,
-      defaultmailbox,
-      userlicensetype,
-      islicensed,
-      positionid,
-      positionidname,
-      test,
-      testdate,
-      teststate,
-      subsidiaryid,
-      notificationchatid,
-      mainteam,
-      currenttask,
-      ext,
-      shamsidatestartcollaboration,
-      id,
-      cats,
-      onsite,
-      generateseller,
-      happycustomerscount,
-      unhappycustomerscount,
-      mainproject,
-      parentmainteam,
-      defaultodbfoldername,
-      localimagelargeguid,
-      localimagesmallguid,
-      statusreason,
-      birthday,
-      englishfamilyname,
-      englishfirstname,
-      entrydate,
-      gender,
-      insurancestartdate,
-      maritalstatus,
-      nationalid,
-      numberofchildren,
-      realbirthday,
-      currentsalary,
-      systemuseridmeta,
-      axios
-        .post(
-          "http://127.0.0.1:8000/system-users/",
-          {
-            mainteamname,
-            systemuserid,
-            organizationid,
-            businessunitid,
-            parentsystemuserid,
-            firstname,
-            lastname,
-            fullname,
-            internalemailaddress,
-            mobilephone,
-            domainname,
-            createdon,
-            modifiedon,
-            createdby,
-            modifiedby,
-            isdisabled,
-            skills,
-            calendarid,
-            activedirectoryguid,
-            invitestatuscode,
-            isactivedirectoryuser,
-            queueid,
-            transactioncurrencyid,
-            defaultmailbox,
-            userlicensetype,
-            islicensed,
-            positionid,
-            positionidname,
-            test,
-            testdate,
-            teststate,
-            subsidiaryid,
-            notificationchatid,
-            mainteam,
-            currenttask,
-            ext,
-            shamsidatestartcollaboration,
-            id,
-            cats,
-            onsite,
-            generateseller,
-            happycustomerscount,
-            unhappycustomerscount,
-            mainproject,
-            parentmainteam,
-            defaultodbfoldername,
-            localimagelargeguid,
-            localimagesmallguid,
-            statusreason,
-            birthday,
-            englishfamilyname,
-            englishfirstname,
-            entrydate,
-            gender,
-            insurancestartdate,
-            maritalstatus,
-            nationalid,
-            numberofchildren,
-            realbirthday,
-            currentsalary,
-            systemuseridmeta,
+    axios
+      .post(
+        "http://127.0.0.1:8000/system-users/",
+        {
+          mainteamname,
+          systemuserid,
+          organizationid,
+          businessunitid,
+          parentsystemuserid,
+          firstname,
+          lastname,
+          fullname,
+          internalemailaddress,
+          mobilephone,
+          domainname,
+          createdon,
+          modifiedon,
+          createdby,
+          modifiedby,
+          isdisabled,
+          skills,
+          calendarid,
+          activedirectoryguid,
+          invitestatuscode,
+          isactivedirectoryuser,
+          queueid,
+          transactioncurrencyid,
+          defaultmailbox,
+          userlicensetype,
+          islicensed,
+          positionid,
+          positionidname,
+          test,
+          testdate,
+          teststate,
+          subsidiaryid,
+          notificationchatid,
+          mainteam,
+          currenttask,
+          ext,
+          shamsidatestartcollaboration,
+          id,
+          cats,
+          onsite,
+          generateseller,
+          happycustomerscount,
+          unhappycustomerscount,
+          mainproject,
+          parentmainteam,
+          defaultodbfoldername,
+          localimagelargeguid,
+          localimagesmallguid,
+          statusreason,
+          birthday,
+          englishfamilyname,
+          englishfirstname,
+          entrydate,
+          gender,
+          insurancestartdate,
+          maritalstatus,
+          nationalid,
+          numberofchildren,
+          realbirthday,
+          currentsalary,
+          systemuseridmeta,
+        },
+        {
+          headers: {
+            "Content-type": "application/json",
           },
-          {
-            headers: {
-              "Content-type": "application/json",
-            },
-          }
-        )
-        .then(() => console.log("Done"));
+        }
+      )
+      .then(() => console.log("Done"));
   };
 
   return (
@@ -215,7 +154,7 @@ function AddSystemUser() {
             <Form.Item label="Team ID" colon={false}>
               <Input
                 placeholder="e.g. C4A85000-9103-E611-80E5-000C29F57F35"
-                onChange={(e) => set_teamid(e.target.value)}
+                onChange={(e) => set_mainteamname(e.target.value)}
               />
             </Form.Item>
           </Col>
@@ -224,7 +163,7 @@ function AddSystemUser() {
             <Form.Item label="Organization ID" colon={false}>
               <Input
                 placeholder="e.g. DECF85E3-6DA4-E411-80B7-000C29F57F35"
-                onChange={(e) => set_organizationid(e.target.value)}
+                onChange={(e) => set_systemuserid(e.target.value)}
               />
             </Form.Item>
           </Col>
@@ -233,12 +172,43 @@ function AddSystemUser() {
             <Form.Item label="Business unit ID" colon={false}>
               <Input
                 placeholder="e.g. 26CBE439-6EA4-E411-80B7-000C29F57F35"
-                onChange={(e) => set_businessunitid(e.target.value)}
+                onChange={(e) => set_organizationid(e.target.value)}
               />
             </Form.Item>
           </Col>
         </Row>
         {/* Row 1 end */}
+
+        {/* Row 2 */}
+        <Row gutter={60}>
+          <Col span={8}>
+            <Form.Item label="Team ID" colon={false}>
+              <Input
+                placeholder="e.g. C4A85000-9103-E611-80E5-000C29F57F35"
+                onChange={(e) => set_mainteamname(e.target.value)}
+              />
+            </Form.Item>
+          </Col>
+
+          <Col span={8}>
+            <Form.Item label="Organization ID" colon={false}>
+              <Input
+                placeholder="e.g. DECF85E3-6DA4-E411-80B7-000C29F57F35"
+                onChange={(e) => set_systemuserid(e.target.value)}
+              />
+            </Form.Item>
+          </Col>
+
+          <Col span={8}>
+            <Form.Item label="Business unit ID" colon={false}>
+              <Input
+                placeholder="e.g. 26CBE439-6EA4-E411-80B7-000C29F57F35"
+                onChange={(e) => set_organizationid(e.target.value)}
+              />
+            </Form.Item>
+          </Col>
+        </Row>
+        {/* Row 2 end */}
 
         {/* Submit button */}
         <Row gutter={5}>
